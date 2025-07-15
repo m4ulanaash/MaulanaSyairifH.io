@@ -132,6 +132,10 @@ main section {
 }
 
 @media (max-width: 768px) {
+  .hero-background {
+    display: none;
+  }
+
   .hero-background img {
     height: auto;
     width: 100%;
@@ -139,14 +143,14 @@ main section {
   }
 
   .hero-foreground {
-    clip-path: none;
+    clip-path: none !important;
     flex-direction: column;
-    padding: 60px 20px;
+    padding: 80px 20px 40px 20px;
     text-align: center;
   }
 
   .hero-text-content {
-    padding-left: 0;
+    padding-left: 0 !important;
     max-width: 100%;
   }
 
