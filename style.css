@@ -23,7 +23,7 @@ body {
 
 .navbar-brand,
 .nav-link {
-  color: var(--dark-text) !important;
+  color: var(--light-text) !important;
   font-weight: 500;
 }
 
@@ -168,7 +168,7 @@ main section {
     margin-right: 0; /* Hapus margin kanan */
     object-fit: cover;
   }
-  
+
   /* Atur ulang posisi konten teks */
   .hero-text-content {
     padding: 40px 20px; /* Beri jarak di dalam area teks */
