@@ -113,34 +113,31 @@ body {
 }
 
 .it-berries-section {
-    background-color: #1a1a1a; /* Warna latar hitam pekat */
-    color: #cccccc;            /* Warna teks abu-abu terang */
-    padding: 100px 0;
-    position: relative;         /* Penting untuk posisi logo background */
-    overflow: hidden;           /* Mencegah logo keluar dan membuat scrollbar */
+  background-color: #1a1a1a; /* Warna latar hitam pekat */
+  color: #cccccc; /* Warna teks abu-abu terang */
+  padding: 100px 0;
+  position: relative; /* Penting untuk posisi logo background */
+  overflow: hidden; /* Mencegah logo keluar dan membuat scrollbar */
 }
 
 .it-berries-section h2 {
-    color: var(--light-text);   /* Warna judul putih */
-    margin-bottom: 1rem;
+  color: var(--light-text); /* Warna judul putih */
+  margin-bottom: 1rem;
 }
-
 
 /* Membuat garis vertikal di sebelah kiri "READ MORE" */
 .read-more-link::before {
-    content: '';                /* Wajib ada untuk pseudo-element */
-    display: block;
-    width: 2px;
-    height: 1em;                /* Tinggi sama dengan tinggi teks */
-    background-color: var(--light-text);
-    margin-right: 15px;         /* Jarak antara garis dan teks */
+  content: ""; /* Wajib ada untuk pseudo-element */
+  display: block;
+  width: 2px;
+  height: 1em; /* Tinggi sama dengan tinggi teks */
+  background-color: var(--light-text);
+  margin-right: 15px; /* Jarak antara garis dan teks */
 }
 
 .read-more-link:hover {
-    color: #aaaaaa; /* Warna saat mouse hover */
+  color: #aaaaaa; /* Warna saat mouse hover */
 }
-
-
 
 /* Section Bawah Hero */
 main section {
@@ -168,4 +165,77 @@ main section {
   background-color: #1a1a1a;
   color: white;
   padding: 60px 20px;
+}
+/* ======================================================= */
+/* ATURAN UNTUK DESAIN RESPONSIF (MOBILE)         */
+/* ======================================================= */
+@media (max-width: 991.98px) {
+  /* --- Perbaikan Navbar --- */
+  /* Saat di mobile, navbar biasanya punya 1 warna latar,
+       jadi kita samakan warna semua teksnya agar terbaca */
+  .navbar {
+    background-color: var(--dark-bg) !important;
+  }
+  .navbar-brand,
+  .nav-link {
+    color: var(--light-text) !important;
+  }
+  .nav-link.btn {
+    margin-top: 10px;
+    width: fit-content;
+  }
+
+  /* --- Perbaikan Hero Section --- */
+  .hero-container {
+    min-height: auto;
+  }
+
+  /* Hilangkan potongan diagonal di mobile */
+  .hero-foreground {
+    clip-path: none;
+    min-height: auto;
+    padding: 80px 20px 40px 20px; /* Atur jarak baru */
+  }
+
+  /* Posisikan teks di tengah */
+  .hero-text-content {
+    padding-left: 0;
+    text-align: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+  h1.display-3 {
+    font-size: 2.5rem; /* Perkecil ukuran judul utama */
+  }
+
+  /* Atur ulang posisi foto di bawah teks */
+  .hero-background {
+    position: relative; /* Bukan lagi absolut */
+    height: auto;
+    padding: 0;
+    justify-content: center;
+  }
+  .hero-background img {
+    height: auto;
+    width: 70%; /* Lebar foto 70% dari layar HP */
+    max-width: 350px; /* Batas maksimal lebar foto */
+    margin-top: -20px; /* Sedikit naik agar menyatu */
+    z-index: 3;
+    position: relative;
+  }
+
+  /* --- Perbaikan Section IT Berries --- */
+  .it-berries-section .background-logo {
+    display: none; /* Sembunyikan tulisan "IT" besar karena akan mengganggu */
+  }
+  .it-berries-section .text-center {
+    text-align: left !important; /* Kembalikan ke rata kiri jika perlu */
+  }
+
+  /* Beri jarak standar untuk semua section */
+  main section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
