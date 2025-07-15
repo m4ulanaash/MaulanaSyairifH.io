@@ -1,4 +1,3 @@
-/* Warna Dasar */
 :root {
   --light-bg: #eaeaea;
   --dark-bg: #111111;
@@ -11,7 +10,6 @@ body {
   font-family: "Segoe UI", sans-serif;
 }
 
-/* Navbar */
 .navbar {
   background-color: transparent;
   position: absolute;
@@ -26,12 +24,7 @@ body {
   color: var(--dark-text) !important;
   font-weight: 500;
 }
-.nav-link {
-  color: var(--light-text) !important;
-  font-weight: 500;
-}
 
-/* Tombol Contact Me */
 .nav-link.btn {
   background-color: var(--light-text) !important;
   color: var(--light-text) !important;
@@ -40,7 +33,6 @@ body {
   padding: 0.4rem 1.2rem;
 }
 
-/* Efek Hover Oval Putih di Navbar */
 .navbar-nav .nav-link {
   position: relative;
   display: inline-block;
@@ -55,7 +47,6 @@ body {
   border: 2px solid var(--light-text);
 }
 
-/* Hero Section Container Utama */
 .hero-container {
   position: relative;
   min-height: 100vh;
@@ -63,7 +54,6 @@ body {
   overflow: hidden;
 }
 
-/* Background Hero */
 .hero-background {
   position: absolute;
   top: 0;
@@ -83,7 +73,6 @@ body {
   margin-right: 90px;
 }
 
-/* Foreground Hero (teks) */
 .hero-foreground {
   position: relative;
   z-index: 2;
@@ -100,7 +89,6 @@ body {
   max-width: 600px;
 }
 
-/* Ikon Sosial */
 .social-icons a {
   font-size: 1.5rem;
   margin-right: 20px;
@@ -113,39 +101,23 @@ body {
 }
 
 .it-berries-section {
-  background-color: #1a1a1a; /* Warna latar hitam pekat */
-  color: #cccccc; /* Warna teks abu-abu terang */
+  background-color: #1a1a1a;
+  color: #cccccc;
   padding: 100px 0;
-  position: relative; /* Penting untuk posisi logo background */
-  overflow: hidden; /* Mencegah logo keluar dan membuat scrollbar */
+  position: relative;
+  overflow: hidden;
 }
 
 .it-berries-section h2 {
-  color: var(--light-text); /* Warna judul putih */
+  color: var(--light-text);
   margin-bottom: 1rem;
 }
 
-/* Membuat garis vertikal di sebelah kiri "READ MORE" */
-.read-more-link::before {
-  content: ""; /* Wajib ada untuk pseudo-element */
-  display: block;
-  width: 2px;
-  height: 1em; /* Tinggi sama dengan tinggi teks */
-  background-color: var(--light-text);
-  margin-right: 15px; /* Jarak antara garis dan teks */
-}
-
-.read-more-link:hover {
-  color: #aaaaaa; /* Warna saat mouse hover */
-}
-
-/* Section Bawah Hero */
 main section {
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
-/* Efek Hover Kartu Portofolio */
 .card {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -155,14 +127,39 @@ main section {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Samakan tinggi kartu */
 .h-100 {
   height: 100% !important;
 }
 
-/* Section Hitam Tambahan (opsional) */
-.card-section {
-  background-color: #1a1a1a;
-  color: white;
-  padding: 60px 20px;
+@media (max-width: 768px) {
+  .hero-background img {
+    height: auto;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .hero-foreground {
+    clip-path: none;
+    flex-direction: column;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .hero-text-content {
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .social-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .social-icons a {
+    margin: 10px;
+  }
+
+  .card .card-text {
+    font-size: 0.9rem;
+  }
 }
