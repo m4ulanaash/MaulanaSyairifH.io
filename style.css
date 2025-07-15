@@ -141,36 +141,45 @@ main section {
 }
 
 @media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-
-  .hero-background {
-    display: block;
-  }
-
-  .hero-background img {
-    width: 100%;
-    margin: 0;
-  }
-
+  /* Hilangkan clip-path dan atur ulang layout hero */
   .hero-foreground {
-    position: relative;
-    background: rgba(0, 0, 0, 0.6);
-    clip-path: none !important;
-    padding: 30px 20px;
-    text-align: center;
+    clip-path: none; /* Hapus bentuk miring agar menjadi kotak penuh */
+    flex-direction: column; /* Ubah arah flex menjadi vertikal */
+    justify-content: flex-start; /* Mulai konten dari atas */
+    padding-top: 80px; /* Beri jarak dari atas */
+    text-align: center; /* Pusatkan semua teks */
+    min-height: auto; /* Biarkan tinggi container menyesuaikan isi */
   }
 
+  /* Munculkan kembali background yang berisi foto */
+  .hero-background {
+    display: block; /* Tampilkan kembali container foto */
+    position: relative; /* Hapus posisi absolut agar menjadi bagian dari alur normal */
+    height: 40vh; /* Atur tinggi area foto, sesuaikan sesuai selera */
+    justify-content: center; /* Pusatkan foto secara horizontal */
+    align-items: center; /* Pusatkan foto secara vertikal */
+  }
+
+  /* Atur ukuran dan posisi foto */
+  .hero-background img {
+    height: 100%; /* Buat tinggi foto memenuhi container-nya */
+    width: auto;
+    max-width: none;
+    margin-right: 0; /* Hapus margin kanan */
+    object-fit: cover;
+  }
+  
+  /* Atur ulang posisi konten teks */
   .hero-text-content {
-    padding: 0;
+    padding: 40px 20px; /* Beri jarak di dalam area teks */
     max-width: 100%;
   }
 
+  /* Pusatkan ikon sosial media */
   .social-icons {
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 20px; /* Beri jarak dari teks di atasnya */
   }
 
   .social-icons a {
