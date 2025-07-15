@@ -1,134 +1,100 @@
+/* Pengaturan Dasar dan Variabel */
 :root {
-  --light-bg: #eaeaea;
-  --dark-bg: #111111;
-  --dark-text: #333333;
-  --light-text: #ffffff;
+  --dark-bg: #212529; /* Warna gelap Bootstrap */
+  --light-bg: #f8f9fa; /* Warna terang Bootstrap */
+  --light-text: #f8f9fa;
+  --dark-text: #212529;
 }
 
+/* Memberi padding atas pada body untuk fixed navbar */
 body {
+  padding-top: 56px;
   background-color: var(--light-bg);
-  font-family: "Segoe UI", sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
+/* === Navbar Styling === */
 .navbar {
-  background-color: transparent;
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10;
+  transition: background-color 0.4s ease-in-out;
 }
 
-.navbar-brand,
-.nav-link {
+/* Saat di atas, teks navbar terang */
+.navbar .navbar-brand,
+.navbar .nav-link {
   color: var(--light-text) !important;
-  font-weight: 500;
 }
 
-.nav-link.btn {
-  background-color: var(--light-text) !important;
-  color: var(--light-text) !important;
-  border-radius: 20px;
-  font-weight: 600;
-  padding: 0.4rem 1.2rem;
+/* Kelas ini ditambahkan oleh JavaScript saat scroll */
+.navbar.scrolled {
+  background-color: var(--dark-bg) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-nav .nav-link {
-  position: relative;
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover {
-  background-color: transparent;
-  color: var(--light-text);
-  border: 2px solid var(--light-text);
-}
-
+/* === Hero Section (Tampilan Desktop) === */
 .hero-container {
-  position: relative;
-  min-height: 100vh;
+  display: flex; /* KUNCI: Membuat layout menyamping */
+  height: 100vh;
   width: 100%;
+  margin-top: -56px;
   overflow: hidden;
+}
+
+.hero-foreground {
+  flex-basis: 55%; /* Lebar area teks 55% */
+  background-color: var(--light-bg);
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-end;
-  background-color: var(--dark-bg);
-  background-size: cover;
-  background-position: center;
+  /* KUNCI: Membuat potongan diagonal */
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+  padding-right: 10%; /* Mendorong teks agar tidak mepet garis */
+  box-sizing: border-box;
+}
+
+.hero-text-content {
+  color: var(--dark-text);
+  text-align: left;
+}
+
+.social-icons a {
+  color: var(--dark-text); /* Warna ikon gelap di area terang */
+  font-size: 1.8rem;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #6c757d;
 }
 
 .hero-background {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-basis: 45%; /* Lebar area gambar 45% */
+  /* Trik untuk menarik gambar ke kiri agar pas dengan potongan diagonal */
+  margin-left: -20%;
 }
 
 .hero-background img {
   width: 100%;
-  height: auto;
-  max-height: 100vh;
+  height: 100%;
   object-fit: cover;
 }
 
-.hero-foreground {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  text-align: left;
+/* === Section Lainnya === */
+.it-berries-section,
+.it-berries {
+  padding: 80px 0;
 }
 
-.hero-text-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.social-icons {
-  margin-top: 15px;
-  display: flex;
-  gap: 15px;
-}
-
-.social-icons a {
-  font-size: 1.5rem;
-  color: white;
-  transition: color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #bbbbbb;
+.it-berries {
+  background-color: var(--light-bg);
 }
 
 .it-berries-section {
-  background-color: #1a1a1a;
-  color: #cccccc;
-  padding: 100px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.it-berries-section h2 {
+  background-color: #343a40;
   color: var(--light-text);
-  margin-bottom: 1rem;
-}
-
-main section {
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 .card {
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -136,57 +102,48 @@ main section {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.h-100 {
-  height: 100% !important;
-}
-
+/* ==============================================
+   Tampilan Mobile (Layar 768px ke bawah)
+================================================= */
 @media (max-width: 768px) {
-  /* Hilangkan clip-path dan atur ulang layout hero */
-  .hero-foreground {
-    clip-path: none; /* Hapus bentuk miring agar menjadi kotak penuh */
-    flex-direction: column; /* Ubah arah flex menjadi vertikal */
-    justify-content: flex-start; /* Mulai konten dari atas */
-    padding-top: 80px; /* Beri jarak dari atas */
-    text-align: center; /* Pusatkan semua teks */
-    min-height: auto; /* Biarkan tinggi container menyesuaikan isi */
+  /* Atur ulang hero container untuk mobile */
+  .hero-container {
+    flex-direction: column; /* Mengubah layout menjadi vertikal */
   }
 
-  /* Munculkan kembali background yang berisi foto */
+  /* Gambar di atas */
   .hero-background {
-    display: block; /* Tampilkan kembali container foto */
-    position: relative; /* Hapus posisi absolut agar menjadi bagian dari alur normal */
-    height: 40vh; /* Atur tinggi area foto, sesuaikan sesuai selera */
-    justify-content: center; /* Pusatkan foto secara horizontal */
-    align-items: center; /* Pusatkan foto secara vertikal */
+    order: 1; /* Pindah ke urutan pertama */
+    width: 100%;
+    height: 60vh;
+    margin-left: 0; /* Hapus margin negatif */
   }
 
-  /* Atur ukuran dan posisi foto */
-  .hero-background img {
-    height: 100%; /* Buat tinggi foto memenuhi container-nya */
-    width: auto;
-    max-width: none;
-    margin-right: 0; /* Hapus margin kanan */
-    object-fit: cover;
+  /* Teks di bawah */
+  .hero-foreground {
+    order: 2; /* Pindah ke urutan kedua */
+    width: 100%;
+    clip-path: none; /* Hapus potongan diagonal */
+    padding: 40px 20px;
+    background-color: var(--dark-bg); /* Ubah background jadi gelap */
   }
 
-  /* Atur ulang posisi konten teks */
   .hero-text-content {
-    padding: 40px 20px; /* Beri jarak di dalam area teks */
-    max-width: 100%;
+    color: var(--light-text); /* Ubah teks jadi terang */
+    text-align: center; /* Pusatkan teks */
   }
 
-  /* Pusatkan ikon sosial media */
   .social-icons {
     justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px; /* Beri jarak dari teks di atasnya */
   }
 
   .social-icons a {
-    margin: 10px;
+    color: var(--light-text); /* Ubah ikon jadi terang */
   }
 
-  .card .card-text {
-    font-size: 0.9rem;
+  /* Saat di mobile, navbar selalu gelap karena konten di bawahnya langsung terang */
+  .navbar,
+  .navbar.scrolled {
+    background-color: var(--dark-bg) !important;
   }
 }
