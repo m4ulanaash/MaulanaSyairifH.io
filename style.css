@@ -166,3 +166,52 @@ main section {
   color: white;
   padding: 60px 20px;
 }
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--dark-bg);
+  }
+
+  .hero-background {
+    position: relative;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .hero-background img {
+    height: auto;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .hero-foreground {
+    position: relative;
+    clip-path: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .hero-text-content {
+    padding: 0;
+    max-width: 90%;
+    color: var(--light-text);
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .social-icons a {
+    margin: 0 10px;
+  }
+}
