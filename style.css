@@ -166,52 +166,67 @@ main section {
   color: white;
   padding: 60px 20px;
 }
-@media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column;
-    display: flex;
-    min-height: 100vh;
-    background-color: var(--dark-bg);
-  }
 
+/* Media Query untuk Tampilan Mobile */
+@media (max-width: 768px) {
+  /* Mengatur ulang posisi background agar gambar fokus di atas */
   .hero-background {
-    position: relative;
-    width: 100%;
-    height: auto;
+    align-items: flex-start;
     justify-content: center;
-    align-items: center;
-    background-color: transparent;
   }
 
   .hero-background img {
-    height: auto;
-    width: 70%;
-    margin: 0 auto;
+    height: 65vh; /* Membuat tinggi gambar tidak 100% dari layar */
+    width: 100%;
+    object-fit: cover; /* Memastikan gambar menutupi area tanpa distorsi */
+    object-position: top center; /* Fokus pada bagian atas tengah gambar */
+    margin-right: 0;
   }
 
+  /* Mengubah foreground menjadi overlay di bagian bawah */
   .hero-foreground {
-    position: relative;
-    clip-path: none;
-    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: auto; /* Tinggi disesuaikan dengan konten */
+    background-color: transparent; /* Hilangkan background putih */
+    clip-path: none; /* Hapus clip-path diagonal dari versi desktop */
+
+    /* Mengatur layout flex untuk teks dan ikon sosial */
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Mendorong teks ke kiri dan ikon ke kanan */
     align-items: center;
-    padding: 30px 20px;
-    text-align: center;
+    padding: 2rem 1.5rem;
+
+    /* Menambahkan latar belakang miring yang baru */
+    background-image: linear-gradient(to right, #2a2a2a, #2a2a2a);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
   }
 
   .hero-text-content {
-    padding: 0;
-    max-width: 90%;
-    color: var(--light-text);
+    padding-left: 0; /* Hapus padding kiri */
+    max-width: 70%;
+    color: var(--light-text); /* Ubah warna teks menjadi putih */
   }
 
+  .hero-text-content h1,
+  .hero-text-content p {
+    color: var(--light-text); /* Pastikan semua teks di dalam putih */
+  }
+
+  /* Menata ikon sosial menjadi vertikal */
   .social-icons {
-    justify-content: center;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Memberi jarak antar ikon */
   }
 
   .social-icons a {
-    margin: 0 10px;
+    color: var(--light-text); /* Ubah warna ikon menjadi putih */
+    margin-right: 0;
+    font-size: 1.3rem;
   }
 }
