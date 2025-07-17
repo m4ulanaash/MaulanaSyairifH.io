@@ -166,67 +166,79 @@ main section {
   color: white;
   padding: 60px 20px;
 }
-
-/* Media Query untuk Tampilan Mobile */
-@media (max-width: 768px) {
-  /* Mengatur ulang posisi background agar gambar fokus di atas */
-  .hero-background {
-    align-items: flex-start;
-    justify-content: center;
+/* ==== RESPONSIVE STYLES (MOBILE) ==== */
+@media (max-width: 991.98px) {
+  .navbar {
+    background-color: #000; /* Solid background on mobile */
   }
-
-  .hero-background img {
-    height: 65vh; /* Membuat tinggi gambar tidak 100% dari layar */
-    width: 100%;
-    object-fit: cover; /* Memastikan gambar menutupi area tanpa distorsi */
-    object-position: top center; /* Fokus pada bagian atas tengah gambar */
-    margin-right: 0;
+  .navbar-nav {
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    margin-top: 10px;
   }
-
-  /* Mengubah foreground menjadi overlay di bagian bawah */
-  .hero-foreground {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    min-height: auto; /* Tinggi disesuaikan dengan konten */
-    background-color: transparent; /* Hilangkan background putih */
-    clip-path: none; /* Hapus clip-path diagonal dari versi desktop */
-
-    /* Mengatur layout flex untuk teks dan ikon sosial */
-    display: flex;
-    justify-content: space-between; /* Mendorong teks ke kiri dan ikon ke kanan */
-    align-items: center;
-    padding: 2rem 1.5rem;
-
-    /* Menambahkan latar belakang miring yang baru */
-    background-image: linear-gradient(to right, #2a2a2a, #2a2a2a);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+  .hero-section {
+    padding-top: 80px;
+    padding-bottom: 0;
   }
-
+  .hero-image-col {
+    order: 1; /* Image first */
+  }
+  .hero-text-col {
+    order: 2; /* Text second */
+  }
   .hero-text-content {
-    padding-left: 0; /* Hapus padding kiri */
-    max-width: 70%;
-    color: var(--light-text); /* Ubah warna teks menjadi putih */
+    background-color: rgba(68, 68, 68, 0.9);
+    color: #f0f0f0;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: -80px; /* Pull up over the image */
+    position: relative;
+    z-index: 2;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: grid;
+    grid-template-areas:
+      "p p"
+      "h1 h1"
+      "h2 h2"
+      "social social";
+    align-items: center;
   }
-
-  .hero-text-content h1,
   .hero-text-content p {
-    color: var(--light-text); /* Pastikan semua teks di dalam putih */
+    grid-area: p;
   }
-
-  /* Menata ikon sosial menjadi vertikal */
+  .hero-text-content h1 {
+    grid-area: h1;
+  }
+  .hero-text-content h2 {
+    grid-area: h2;
+    margin-bottom: 1rem !important;
+  }
   .social-icons {
+    grid-area: social;
+    justify-self: start; /* Align icons to the left */
+    margin-top: 1rem;
+  }
+  /* Vertical icons as in the picture */
+  .hero-text-content {
+    padding-bottom: 20px;
+    display: block; /* Override grid for simpler layout */
+    text-align: left;
+  }
+  .social-icons {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Memberi jarak antar ikon */
   }
-
-  .social-icons a {
-    color: var(--light-text); /* Ubah warna ikon menjadi putih */
+  .social-icons .social-icon {
     margin-right: 0;
-    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  .hero-text-content h2 {
+    width: 70%; /* Prevent text from overlapping icons */
   }
 }
