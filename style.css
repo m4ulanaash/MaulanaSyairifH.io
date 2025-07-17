@@ -13,7 +13,7 @@ body {
   color: #111 !important;
 }
 .nav-link {
-  color: #111 !important;
+  color: #fffdfd !important;
   font-weight: 500;
 }
 .btn-contact {
@@ -96,7 +96,7 @@ body {
 
 /* ==== SECTIONS ==== */
 .about-section {
-  background-color: #1a1a1a;
+  background-color: #ffffff;
   padding: 80px 0;
 }
 .experience-section {
